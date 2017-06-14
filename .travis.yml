@@ -1,9 +1,7 @@
-language: haskell
+  global:
+# NB: don't set `language: haskell` here
 
-sudo: false
-cache:
-  directories:
-    - $HOME/.stack/
+# See also https://github.com/hvr/multi-ghc-travis for more information
 
 branches:
   only:
@@ -11,47 +9,44 @@ branches:
 
 env:
   global:
-    - GH_NAME="335g.travis"
-    - secure: "hByayKJ4Dc8xTLJu3Vz3wYZCz0O67ueWfUr8JPXqApI1vc7aS4XhFsinGuqFvf6Pb4PSVT0qOC6fSLNVcucxsMD+7ixT7lUCjZ5a6jLDFkpX8GaDyqYCGOgMziFAqow/GXeVAuT3A2VOJ6oVpghOHq0MIzOdpNZ7KCG34dGvH22gmB6vlZQhOt//A2yIFzFetP6Zkr0ccm9Riq4Lkic5GHZ2D8BTFsgQO+yl95y690Ej6GV6kMPwCVKHbVGShDI1qP97F84I2iojVyzK5jTvJxQLPYZoluxLuAWYk8FYZqvJI4ShguZyPlIBrwIjmGLVDNvPpJxgBKvPWbtHdG/vo4E/Ubgpa0isC+WY9bJuFKm/lFSwukHs2iQcsdae6PhsFlTfAh6L4w73y60M27mRTSUjYwBBVhKRiisMWjpRzw0h/GCBm3bCjirtpCeAIUbtW19nQ+PRvlUqvjNcDLnT4xCz9V7YrZ41bRoIhBGWNqcSvYrj05o6GKHdgA3QY5gnn1HBAFGJvOm9mmstoUs++ant9fE5icdXiaVF5BaGvO3vYyY/W7Ynr15PeTt/LAYjd9rYVKdP216LS0jWqX7JJQayL+rDucftPR62bOmLJEKoimrwKOBaHRaqz/t6eZDH2w+VlO8K//UAvbGyuVrWxPaP0BfnOU7K/8qnNSeAgxI="
+    - GH_NAME="Travis on behalf of IMOKURI"
     - secure: "R+qKNt+hM6wiKbIt/5euAV2r8p4t4Ajbpk017oC3SeF6kDV6BYeI4Jvd2OoL3RE2bTcAaGiPVTp29LlCETSiN4DOe46uCVX0UMlo30EZgZN51xZ9Ig14rHdIvdCLLI1FSXzBjSCbTn/hBcUpjQKjR1Gp8CyIJ0ZCooxicwbFXq3GDD6QeSsCT6ROM40UKcBXwmcFsyPkAD9PQES0uwqNBPcokW4vnQp35ZHu9Yu3SVKa8zfb5oiAAjKnkoA0TaWjF5PXui8cuwsEdKs1AZnKaz07jbxm/y2+38H+ONkrmY8xbN72Wm59wkP5p2FU7qRB2K1EfFaknl/UGRkgC01mBvHCI6PxJDDQlhITDBx8aw1vXjtmbIXRC4Ndg4EY2TM05JuAOGxtSTOPKgjiu3205DwOPpyquoo/BuRnIqnnW5pNPuzzuhyfb6VwKnYw9gHDVjGNgkkFl6Jf7klIJCI/6aZ7QwxrBLJq3jBDe1oVflHA4/QFFNsQe4R0pMeNNLhl8jg+f8P0lFrgLcX73DP5Z17+9WlpwPkmsSxuv+Rk696FpPrw7JwaymquZQOQHluoRQBqF85nAvM4fzGtA1ohWohacdc4g3X12NPOoj96rnf2T3+zX8vyiqfUhWP+Gq7R0cgah1fyCEgImvcT1YxUmcFdBFbDvmQlfFzpubmaPpo="
+    - secure: "hByayKJ4Dc8xTLJu3Vz3wYZCz0O67ueWfUr8JPXqApI1vc7aS4XhFsinGuqFvf6Pb4PSVT0qOC6fSLNVcucxsMD+7ixT7lUCjZ5a6jLDFkpX8GaDyqYCGOgMziFAqow/GXeVAuT3A2VOJ6oVpghOHq0MIzOdpNZ7KCG34dGvH22gmB6vlZQhOt//A2yIFzFetP6Zkr0ccm9Riq4Lkic5GHZ2D8BTFsgQO+yl95y690Ej6GV6kMPwCVKHbVGShDI1qP97F84I2iojVyzK5jTvJxQLPYZoluxLuAWYk8FYZqvJI4ShguZyPlIBrwIjmGLVDNvPpJxgBKvPWbtHdG/vo4E/Ubgpa0isC+WY9bJuFKm/lFSwukHs2iQcsdae6PhsFlTfAh6L4w73y60M27mRTSUjYwBBVhKRiisMWjpRzw0h/GCBm3bCjirtpCeAIUbtW19nQ+PRvlUqvjNcDLnT4xCz9V7YrZ41bRoIhBGWNqcSvYrj05o6GKHdgA3QY5gnn1HBAFGJvOm9mmstoUs++ant9fE5icdXiaVF5BaGvO3vYyY/W7Ynr15PeTt/LAYjd9rYVKdP216LS0jWqX7JJQayL+rDucftPR62bOmLJEKoimrwKOBaHRaqz/t6eZDH2w+VlO8K//UAvbGyuVrWxPaP0BfnOU7K/8qnNSeAgxI="
+
+
+  matrix:
+    - CABALVER=1.20 GHCVER=7.8.3
+#    - CABALVER=1.22 GHCVER=7.10.1
+#    - CABALVER=head GHCVER=head
 
 before_install:
-  - mkdir -p ~/.local/bin
-  - export PATH=~/.local/bin:$PATH
-  - travis_retry curl -L https://github.com/commercialhaskell/stack/releases/download/v0.1.2.0/stack-0.1.2.0-x86_64-linux.gz | gunzip > ~/.local/bin/stack
-  - chmod a+x ~/.local/bin/stack
-  - export PATH=~/opt/ghc/7.8.4/bin:$PATH
+  - travis_retry sudo add-apt-repository -y ppa:hvr/ghc
+  - travis_retry sudo apt-get update
+  - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER
+  - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$PATH
+
   - git submodule foreach --recursive 'git checkout master; git ls-files | grep -v README | grep -v CNAME | xargs -r git rm'
 
-addons:
-  apt:
-    sources:
-      - hvr-ghc
-    packages:
-      - ghc-7.8.4
-
 install:
-  - stack setup --no-terminal
-  - stack build --only-snapshot --no-terminal
+  - travis_retry cabal update
+  - cabal sandbox init
+  - cabal install --only-dependencies --disable-documentation
+  - cabal configure --disable-library-profiling --disable-tests --disable-library-coverage --disable-benchmarks --disable-split-objs
 
 before_script:
   - git config --global user.name "$GH_NAME"
   - git config --global user.email "$GH_EMAIL"
 
 script:
-  - stack build --no-terminal
-  - cd weblog
-  - stack ghc site.hs
-  - ./site build
+  - cabal run -j build
 
 after_success:
-  - cd _site
-  - export REMOTE=$(git config remote.origin.url | sed 's/.*:\/\///')
-  - git remote add github https://${GH_TOKEN}@${REMOTE}
-  - git add ./*
-  - git status
-  - git commit -m "Built by Travis (build $TRAVIS_BUILD_NUMBER)"
-  - git push --quiet github master:master
-
-notifications:
-  email: false
+  - if [[ "$TRAVIS_BRANCH" == "src" ]]; then
+    cd _site;
+    export REMOTE=$(git config remote.origin.url | sed 's/.*:\/\///');
+    git remote add github https://${GH_TOKEN}@${REMOTE};
+    git add --all;
+    git status;
+    git commit -m "Built by Travis ( build $TRAVIS_BUILD_NUMBER )";
+    git push github master:master 2>&1 | grep -v http;
+    fi
