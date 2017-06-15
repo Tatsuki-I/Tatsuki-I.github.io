@@ -42,7 +42,7 @@ script:
   - stack build --no-terminal
   - cd weblog
   - stack ghc site.hs
-  - stack exec site build
+  - ./site build
 
 after_success:
   - cd _site
