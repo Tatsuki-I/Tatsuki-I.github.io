@@ -120,7 +120,82 @@ data-background-image="/media/boards.jpg"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
 &lt;h1 id="questions">Questions?&lt;/h1>
 &lt;p>&lt;a href="https://github.com/wowchemy/wowchemy-hugo-modules/discussions" target="_blank" rel="noopener">Ask&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://wowchemy.com/docs/managing-content/#create-slides" target="_blank" rel="noopener">Documentation&lt;/a>&lt;/p></description></item><item><title>Example Project</title><link>https://tatsuki-i.github.io/project/example/</link><pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate><guid>https://tatsuki-i.github.io/project/example/</guid><description>&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p>
+&lt;p>&lt;a href="https://wowchemy.com/docs/managing-content/#create-slides" target="_blank" rel="noopener">Documentation&lt;/a>&lt;/p></description></item><item><title>本当に最低限のvimrc入門</title><link>https://tatsuki-i.github.io/post/vimrc/</link><pubDate>Sat, 17 Dec 2016 18:24:53 +0900</pubDate><guid>https://tatsuki-i.github.io/post/vimrc/</guid><description>&lt;h1 id="本当に最低限のvim入門">本当に最低限のVim入門&lt;/h1>
+&lt;p>この記事は&lt;a href="http://qiita.com/advent-calendar/2016/vim" target="_blank" rel="noopener">Vim Advent Calendar 2016&lt;/a>の17日目の記事です.&lt;/p>
+&lt;p>先日は&lt;a href="http://qiita.com/todashuta" target="_blank" rel="noopener">todashuta&lt;/a>さんで, &lt;a href="http://qiita.com/todashuta/items/1362654c6276e5b69abc" target="_blank" rel="noopener">Vim 8で便利になった組み込みMRU&lt;/a>でした. こんな便利な機能があったんですね(無知ですみません&amp;hellip;).&lt;/p>
+&lt;h2 id="対象読者">対象読者&lt;/h2>
+&lt;p>以下のような読者を想定しています.&lt;/p>
+&lt;ul>
+&lt;li>Vimを使ってみたいけど何から始めればいいか分からない人&lt;/li>
+&lt;li>Vimをそっ閉じした経験がある人(そっ閉じすら出来なかった人も含む)&lt;/li>
+&lt;li>サーバーを触っていてVimを触らざるを得なくなった人&lt;/li>
+&lt;li>友人にキチガイじみたVimmerがいる人(←new)&lt;/li>
+&lt;/ul>
+&lt;h2 id="はじめに">はじめに&lt;/h2>
+&lt;p>Unix系OSやLinuxの場合は標準でインストールされている事がほとんどですが, もし入っていなかった場合はパッケージマネージャーからインストールして下さい.&lt;/p>
+&lt;h3 id="debian系linuxの場合">Debian系Linuxの場合&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ sudo apt-get install vim
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="redhat系linuxの場合">RedHat系Linuxの場合&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ sudo yum install vim
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fedora22以降の場合">Fedora22以降の場合&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ sudo dnf install vim
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ソースからコンパイルする場合">ソースからコンパイルする場合&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ git clone https://github.com/vim/vim.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">cd&lt;/span> vim/src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ make
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Windows10の場合は, Bash on Windowsを使えば上記Ubuntuと同じようにインストールできます. それ以外のバージョンのWindowsの場合は, &lt;a href="https://www.kaoriya.net/software/vim/" target="_blank" rel="noopener">KaoriYaさんのホームページ&lt;/a>からダウンロードできるので, それを使えばいいかと思います.&lt;/p>
+&lt;h2 id="起動と終了">起動と終了&lt;/h2>
+&lt;p>Terminalでvimコマンドを実行して下さい.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ vim
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Vimが起動しましたね.&lt;br>
+では次に終了の仕方です. 以下のように打ち込んでEnterを押して下さい.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="line">&lt;span class="cl">&lt;span class="p">:&lt;/span>&lt;span class="nx">q&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>終了しましたか？&lt;br>
+もし終了しなかった場合は, &lt;code>Esc&lt;/code>を連打してからもう1度試してみて下さい.&lt;/p>
+&lt;h2 id="設定ファイルの作成">設定ファイルの作成&lt;/h2>
+&lt;p>Terminalでvimコマンドを実行する際に引数にファイル名を与える事で, そのファイルをVimで開く事ができます. また, まだ存在しないファイル名を指定すると新規ファイルを作成する事ができます.&lt;br>
+今回は, 皆さんが今後1番Vimで編集する事になるであろう, Vimの設定ファイルを作成しましょう. Vimの設定ファイルの名前は**.vimrc**です. ホームディレクトリに保存します.&lt;br>
+以下のように設定ファイルを新規作成しましょう.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ vim ~/.vimrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>何も書かれていないファイルが開いたと思います(環境によっては初めから何か書かれている可能性があります).&lt;br>
+では最初の設定を書き込みましょう.&lt;br>
+今の状態では文字を入力することはできません. Vimを文字入力入力できる状態にするには, 挿入モードに切り替える必要があります.&lt;br>
+Vimはデフォルトではノーマルモードになっています. ノーマルモードから挿入モードに切り替えるには, &lt;code>i&lt;/code>と入力して下さい. すると文字が入力できるようになります.&lt;br>
+以下のように入力してみて下さい.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">syntax&lt;/span> &lt;span class="nx">on&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>次に, 保存の方法です. 保存を行うにはノーマルモードに戻す必要があります.&lt;br>
+ノーマルモードに戻るには&lt;code>ESC&lt;/code>か&lt;code>Ctrl+[&lt;/code>を押します. US配列のキーボードを使っている人は後者の方が楽かと思います. 今後よく分からない状態になってしまった場合は, とりあえず&lt;code>ESC&lt;/code>を連打してみましょう. 大体なんとかなります.&lt;br>
+保存は以下のように入力することで行います.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="line">&lt;span class="cl">&lt;span class="p">:&lt;/span>&lt;span class="nx">w&lt;/span> &lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="設定の反映">設定の反映&lt;/h2>
+&lt;p>では次に設定を反映してみましょう. Vimを再起動することによっても反映することができますが, 以下のコマンドを入力すると再起動なしに設定の反映が行なえます.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="line">&lt;span class="cl">&lt;span class="p">:&lt;/span>&lt;span class="nx">source&lt;/span> &lt;span class="p">~&lt;/span>/.&lt;span class="nx">vimrc&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>色が付いたら成功です.&lt;/p>
+&lt;h2 id="設定の追加">設定の追加&lt;/h2>
+&lt;p>更に設定を追記します.
+&lt;code>o&lt;/code>を入力して下さい. すると改行して挿入モードに切り替わります.
+以下を入力してみて下さい.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">set&lt;/span> &lt;span class="nx">number&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>ESC&lt;/code>でノーマルモードに戻って下さい.
+次に, この行を複製します. まず&lt;code>yy&lt;/code>を入力して下さい.
+そのまま&lt;code>p&lt;/code>を入力して下さい. すると先程の行がペーストされます.
+次にVimのカーソル操作です. Vimでは&lt;code>h&lt;/code>で左, &lt;code>j&lt;/code>で下, &lt;code>k&lt;/code>で上, &lt;code>l&lt;/code>で右に移動できます.
+&lt;code>set number&lt;/code>のnの上までカーソルを移動させます.
+次に連続置換です. そこで&lt;code>R&lt;/code>を押して下さい. カーソル位置から連続で置換をすることができます.
+&lt;code>cursorline&lt;/code>と入力して&lt;code>ESC&lt;/code>でノーマルモードに戻って下さい.
+以下のようになると成功です.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">set&lt;/span> &lt;span class="nx">cursorline&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="保存して終了">保存して終了&lt;/h2>
+&lt;p>最後に保存して終了です. &lt;code>:wq&lt;/code>を入力してエンターを押して下さい.&lt;/p>
+&lt;h2 id="終わりに">終わりに&lt;/h2>
+&lt;p>以上で本当に最低限のVim入門を終わります.
+これ本当に最低限か？全然足りねえよ, むしろ最低限ならそれ要らないだろ, 偏りすぎだ, 等の意見が多方面から聞こえて来そうですが&amp;hellip;
+(こんな記事を書いてから言うのも何ですが, シェル上でvimtutorコマンドを叩いてみると主要な機能を網羅した素晴らしいチュートリアルが始まります. 30分ぐらいの時間の余裕があるならそっちをやる事をおすすめします)&lt;/p>
+&lt;p>Vimのコミュニティでは, 毎週土曜日23時から&lt;a href="http://vim-jp.org/reading-vimrc/" target="_blank" rel="noopener">vimrc読書会&lt;/a>というものを行っています. ここでは毎週強いVimmerの方々が色んな人の設定ファイルを読んで意見交換をしています. もっとVimの設定に関して知りたい方は, これに参加すると良いかと思います.
+vimrc読書会のロゴを作らせて頂きました. こういう形でしか力になれなくて申し訳ないですが&amp;hellip;&lt;/p>
+&lt;blockquote class="twitter-tweet" data-lang="ja">&lt;p lang="ja" dir="ltr">ロゴ作ってみました&lt;a href="https://twitter.com/hashtag/vimrc%E8%AA%AD%E6%9B%B8%E4%BC%9A?src=hash">#vimrc読書会&lt;/a> &lt;a href="https://t.co/o0QGcGDkzD">pic.twitter.com/o0QGcGDkzD&lt;/a>&lt;/p>&amp;mdash; Tatsuki@Vim (@ttk_vim) &lt;a href="https://twitter.com/ttk_vim/status/792409759311798272">2016年10月29日&lt;/a>&lt;/blockquote>
+&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;p>明日は&lt;a href="http://qiita.com/mattn" target="_blank" rel="noopener">mattn&lt;/a>さんの記事です. どんな記事なのか楽しみですね.&lt;/p></description></item><item><title>Example Project</title><link>https://tatsuki-i.github.io/project/example/</link><pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate><guid>https://tatsuki-i.github.io/project/example/</guid><description>&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p>
 &lt;p>Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p>
 &lt;p>Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p>
 &lt;p>Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p>
