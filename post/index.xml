@@ -117,8 +117,7 @@ Haskellでは, その値が本当に必要になるまで評価を行わない**
 &lt;pre tabindex="0">&lt;code class="language-hs:第4段階" data-lang="hs:第4段階">&lt;/code>&lt;/pre>&lt;p>6番目の要素が5である(ry&lt;/p>
 &lt;pre tabindex="0">&lt;code class="language-hs:第5段階" data-lang="hs:第5段階">&lt;/code>&lt;/pre>&lt;p>よって, 以下のようなリストになります.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-hs" data-lang="hs">&lt;/code>&lt;/pre>&lt;/div>&lt;p>##以上です&lt;/p>
-&lt;p>Haskellを思い通りに書けるようになりたいけど, 読むのが精一杯でいざ実装しようとなると全く書き方(文法ではなく考え方)が分からない今日此の頃. 誰か何かおすすめの方法等あれば教えてください.&lt;/p></description></item><item><title>本当に最低限のvimrc入門 #vim</title><link>https://tatsuki-i.github.io/post/vimrc/</link><pubDate>Sat, 17 Dec 2016 18:24:53 +0900</pubDate><guid>https://tatsuki-i.github.io/post/vimrc/</guid><description>&lt;h1 id="本当に最低限のvim入門">本当に最低限のVim入門&lt;/h1>
-&lt;p>この記事は&lt;a href="http://qiita.com/advent-calendar/2016/vim" target="_blank" rel="noopener">Vim Advent Calendar 2016&lt;/a>の17日目の記事です.&lt;/p>
+&lt;p>Haskellを思い通りに書けるようになりたいけど, 読むのが精一杯でいざ実装しようとなると全く書き方(文法ではなく考え方)が分からない今日此の頃. 誰か何かおすすめの方法等あれば教えてください.&lt;/p></description></item><item><title>本当に最低限のvimrc入門 #vim</title><link>https://tatsuki-i.github.io/post/vimrc/</link><pubDate>Fri, 16 Dec 2016 15:00:00 +0000</pubDate><guid>https://tatsuki-i.github.io/post/vimrc/</guid><description>&lt;p>この記事は&lt;a href="http://qiita.com/advent-calendar/2016/vim" target="_blank" rel="noopener">Vim Advent Calendar 2016&lt;/a>の17日目の記事です.&lt;/p>
 &lt;p>先日は&lt;a href="http://qiita.com/todashuta" target="_blank" rel="noopener">todashuta&lt;/a>さんで, &lt;a href="http://qiita.com/todashuta/items/1362654c6276e5b69abc" target="_blank" rel="noopener">Vim 8で便利になった組み込みMRU&lt;/a>でした. こんな便利な機能があったんですね(無知ですみません&amp;hellip;).&lt;/p>
 &lt;h2 id="対象読者">対象読者&lt;/h2>
 &lt;p>以下のような読者を想定しています.&lt;/p>
