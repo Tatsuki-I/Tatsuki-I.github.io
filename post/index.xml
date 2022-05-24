@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts | 日本語版</title><link>https://tatsuki-i.github.io/post/</link><atom:link href="https://tatsuki-i.github.io/post/index.xml" rel="self" type="application/rss+xml"/><description>Posts</description><generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Sat, 17 Dec 2016 18:24:53 +0900</lastBuildDate><image><url>https://tatsuki-i.github.io/media/icon_hu289a5bb365cd0c73bb390712e98aa29a_223035_512x512_fill_lanczos_center_3.png</url><title>Posts</title><link>https://tatsuki-i.github.io/post/</link></image><item><title>本当に最低限のvimrc入門 #vim</title><link>https://tatsuki-i.github.io/post/vimrc/</link><pubDate>Sat, 17 Dec 2016 18:24:53 +0900</pubDate><guid>https://tatsuki-i.github.io/post/vimrc/</guid><description>&lt;h1 id="本当に最低限のvim入門">本当に最低限のVim入門&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts | 日本語版</title><link>https://tatsuki-i.github.io/post/</link><atom:link href="https://tatsuki-i.github.io/post/index.xml" rel="self" type="application/rss+xml"/><description>Posts</description><generator>Wowchemy (https://wowchemy.com)</generator><language>ja</language><lastBuildDate>Tue, 24 May 2022 04:30:56 +0000</lastBuildDate><image><url>https://tatsuki-i.github.io/media/icon_hu289a5bb365cd0c73bb390712e98aa29a_223035_512x512_fill_lanczos_center_3.png</url><title>Posts</title><link>https://tatsuki-i.github.io/post/</link></image><item><title>Haskellのキモいフィボナッチ数列がやっと理解できたからこれでもかという程に細かく説明してみた #Haskell</title><link>https://tatsuki-i.github.io/post/haskell%E3%81%AE%E3%82%AD%E3%83%A2%E3%81%84%E3%83%95%E3%82%A3%E3%83%9B%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%E3%81%8B%E3%82%84%E3%81%A3%E3%81%A8%E7%90%86%E8%A7%A3%E3%81%A6%E3%81%8D%E3%81%9F%E3%81%8B%E3%82%89%E3%81%93%E3%82%8C%E3%81%A6%E3%82%82%E3%81%8B%E3%81%A8%E3%81%84%E3%81%86%E7%A8%8B%E3%81%AB%E7%B4%B0%E3%81%8B%E3%81%8F%E8%AA%AC%E6%98%8E%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F-haskell/</link><pubDate>Tue, 24 May 2022 04:30:56 +0000</pubDate><guid>https://tatsuki-i.github.io/post/haskell%E3%81%AE%E3%82%AD%E3%83%A2%E3%81%84%E3%83%95%E3%82%A3%E3%83%9B%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0%E5%88%97%E3%81%8B%E3%82%84%E3%81%A3%E3%81%A8%E7%90%86%E8%A7%A3%E3%81%A6%E3%81%8D%E3%81%9F%E3%81%8B%E3%82%89%E3%81%93%E3%82%8C%E3%81%A6%E3%82%82%E3%81%8B%E3%81%A8%E3%81%84%E3%81%86%E7%A8%8B%E3%81%AB%E7%B4%B0%E3%81%8B%E3%81%8F%E8%AA%AC%E6%98%8E%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F-haskell/</guid><description>&lt;p>#&lt;code>fib = 0 : 1 : zipWith (+) fib (tail fib)&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://chomado.com/programming/haskell/haskell-%e3%82%ad%e3%83%a2%e3%81%84%e3%83%95%e3%82%a3%e3%83%9c%e3%83%8a%e3%83%83%e3%83%81%e6%95%b0%e5%88%97%e3%81%ae%e8%a7%a3%e8%aa%ad%e3%82%92%e8%a9%a6%e3%81%bf%e3%82%8b/" target="_blank" rel="noopener">こちらの記事&lt;/a>で紹介されていた &lt;strong>キモいフィボナッチ数列&lt;/strong>がやっとの事で理解できたので, これ見よがしにドヤ顔で解説をしたいと思います.
+ただ, 僕はこれを理解するので精一杯な初心者ですので, もし間違いやより良い表現等があれば教えて頂けると幸いです.&lt;/p>
+&lt;p>
+##まずは見てみる&lt;/p>
+&lt;p>まず問題のフィボナッチ数列はこちら&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-hs:fib.hs" data-lang="hs:fib.hs">&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここで注意して頂きたい点があります.
+この&lt;code>fib&lt;/code>ですが, このままだと動作しません. 実は僕は最初ここで躓いてしまい, これより先に進む事ができませんでした. &lt;del>雑魚とか言わないで&lt;/del>
+この&lt;code>fib&lt;/code>というのは, &lt;strong>関数ではなく定数&lt;/strong>です(引数を取らない関数である多相定数というやつなのかなーと思っていますが, 多相定数が何なのかイマイチ理解できていません. &lt;del>&lt;a href="http://dic.nicovideo.jp/a/%e6%95%99%e3%81%88%e3%81%a6%e3%82%a8%e3%83%ad%e3%81%84%e4%ba%ba" target="_blank" rel="noopener">教えてエロい人!&lt;/a>&lt;/del>).
+再帰的に定義をしていますし, いつもの関数定義のような形で書いているのでパッと見関数っぽいですが, 定数です.&lt;/p>
+&lt;p>##じゃあ中身は一体どうなってるのさ&lt;/p>
+&lt;p>&lt;code>fib&lt;/code>の中身は無限リストになっています.
+Haskellでは, その値が本当に必要になるまで評価を行わない**遅延評価(lazy evaluation)**が採用されています. 無限の長さのリストが扱えるのは, LazyなHaskellだからこそできる芸当ですね. どこぞの軽音楽部とは違います&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>はすける「Please say me &amp;ldquo;You are lazy!&amp;quot;」&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>話を元に戻しましょう.
+無限リスト&lt;code>fib&lt;/code>の中から値を取り出したい場合は, リストの先頭から&lt;code>n&lt;/code>個の要素を取り出したリストを返す関数&lt;code>take n&lt;/code>を用いて,&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-hs:fib.hs" data-lang="hs:fib.hs">&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code class="language-hs:実行結果" data-lang="hs:実行結果">&lt;/code>&lt;/pre>&lt;p>このように, フィボでナッチなリストを, あなたのメモリと整数型の上限値が許す限り取り出すことができます.&lt;/p>
+&lt;p>##いよいよ解読開始&lt;/p>
+&lt;p>ではまず定義を改めて確認していきます.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-hs:fib.hs" data-lang="hs:fib.hs">&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>fib :: Num a =&amp;gt; [a]&lt;/code>というのは単純で, &lt;strong>&lt;code>fib&lt;/code>はNum型クラスの任意のインスタンス&lt;code>a&lt;/code>のリストを返します&lt;/strong>, という意味になります.&lt;/p>
+&lt;p>&lt;code>0:1:&lt;/code>というのは&lt;code>[0, 1]++&lt;/code>(リスト[0, 1]と, その後ろのリストを連結する)と同じ意味です.&lt;/p>
+&lt;p>関数&lt;code>zipWith&lt;/code>は二引数関数f, リストa, bを引数に取り, a, bの要素を先頭から順にfで合成したリストを返す関数です.
+例えば&lt;code>zipWith (+) [1, 2, 3] [4, 5, 6]&lt;/code>だと,&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-hs:zipWith" data-lang="hs:zipWith">&lt;/code>&lt;/pre>&lt;p>のようになり, &lt;code>[5, 7, 9]&lt;/code>を返します.&lt;/p>
+&lt;p>要するに, &lt;code>fib&lt;/code>は, &lt;strong>[0, 1]というリストに, &lt;code>fib&lt;/code>と&lt;code>tail fib&lt;/code>の各要素をそれぞれ足したリストを連結した無限リスト&lt;/strong>です&lt;/p>
+&lt;p>&lt;code>fib&lt;/code>の初期段階で分かっている要素は&lt;code>[0, 1...]&lt;/code>
+&lt;code>tail fib&lt;/code>の初期段階で分かっている要素は&lt;code>fib&lt;/code>から先頭要素を除いた&lt;code>[1...]&lt;/code>&lt;/p>
+&lt;p>もうお気付きの方も多いかと思いますが, その通りです. この無限リストは, &lt;strong>フィボナッチ数列の最初の2つの要素に, それをずらした数列2つの要素を足し合わせたリストを連結したもの&lt;/strong>になっています.
+フィボナッチ数列は先頭2つの要素さえあれば後は分かりますから, これで求める事が出来るのです.&lt;/p>
+&lt;p>##これ見よがしの解説&lt;/p>
+&lt;p>まずは第1段階です.
+上に並んだ2つが&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-hs:第1段階" data-lang="hs:第1段階">&lt;/code>&lt;/pre>&lt;p>3番目の要素が1である事が分かったので, リストの末尾に追加します.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-hs:第2段階" data-lang="hs:第2段階">&lt;/code>&lt;/pre>&lt;p>4番目の要素が2である事が分かったので, リストの末尾に追加.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-hs:第3段階" data-lang="hs:第3段階">&lt;/code>&lt;/pre>&lt;p>5番目の要素が3である事が分かったので(ry&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-hs:第4段階" data-lang="hs:第4段階">&lt;/code>&lt;/pre>&lt;p>6番目の要素が5である(ry&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-hs:第5段階" data-lang="hs:第5段階">&lt;/code>&lt;/pre>&lt;p>よって, 以下のようなリストになります.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-hs" data-lang="hs">&lt;/code>&lt;/pre>&lt;/div>&lt;p>##以上です&lt;/p>
+&lt;p>Haskellを思い通りに書けるようになりたいけど, 読むのが精一杯でいざ実装しようとなると全く書き方(文法ではなく考え方)が分からない今日此の頃. 誰か何かおすすめの方法等あれば教えてください.&lt;/p></description></item><item><title>本当に最低限のvimrc入門 #vim</title><link>https://tatsuki-i.github.io/post/vimrc/</link><pubDate>Sat, 17 Dec 2016 18:24:53 +0900</pubDate><guid>https://tatsuki-i.github.io/post/vimrc/</guid><description>&lt;h1 id="本当に最低限のvim入門">本当に最低限のVim入門&lt;/h1>
 &lt;p>この記事は&lt;a href="http://qiita.com/advent-calendar/2016/vim" target="_blank" rel="noopener">Vim Advent Calendar 2016&lt;/a>の17日目の記事です.&lt;/p>
 &lt;p>先日は&lt;a href="http://qiita.com/todashuta" target="_blank" rel="noopener">todashuta&lt;/a>さんで, &lt;a href="http://qiita.com/todashuta/items/1362654c6276e5b69abc" target="_blank" rel="noopener">Vim 8で便利になった組み込みMRU&lt;/a>でした. こんな便利な機能があったんですね(無知ですみません&amp;hellip;).&lt;/p>
 &lt;h2 id="対象読者">対象読者&lt;/h2>
